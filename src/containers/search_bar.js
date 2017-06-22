@@ -7,9 +7,10 @@ class SearchBar extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {term: ''};
+		this.state = {term: 'Texas'};
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onFormSubmit = this.onFormSubmit.bind(this);
+		this.props.fetchWeather(this.state.term);
 	}
 
 	onInputChange(event) {
@@ -31,7 +32,7 @@ class SearchBar extends Component {
 	render() {
 		return (
 
-			<form onSubmit={this.onFormSubmit} className="input-group">
+			<form name="theform" onSubmit={this.onFormSubmit} className="input-group">
 				<input 
 					placeholder="Get a five-day forecast in your favorite cities"
 					className="form-control"
@@ -39,7 +40,7 @@ class SearchBar extends Component {
 					onChange={this.onInputChange}
 				/>
 				<span className="input-group-btn">
-					<button type="submit" className="btn btn-secondary">Submit </button>
+					<button type="submit" id="form1" className="btn btn-secondary">Submit </button>
 				</span>
 			</form>
 
